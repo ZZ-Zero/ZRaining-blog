@@ -1,6 +1,8 @@
 .DS_Store
 Thumbs.db
 db.json
+upPhoto.js
+photos
 *.log
 node_modules/
 public/

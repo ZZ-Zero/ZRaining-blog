@@ -59,6 +59,10 @@ sidebar:
             icon: terminal
 
     others:
+        photos:
+            title: 相册
+            url: /photo
+            icon: camera-retro
         friends:
             title: Friends
             url: /links

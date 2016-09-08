@@ -5,7 +5,7 @@
     width:       calc(100% - #{map-get($sidebar, xlg-screen-width)});
     opacity:     0;
     &:hover {
-        opacity: 0.95;
+        opacity: 1;
     }
 }
 
@@ -16,7 +16,7 @@
     width:       calc(100% - #{map-get($sidebar, lg-screen-width)});
     opacity:     0;
     &:hover {
-        opacity: 0.95;
+        opacity: 1;
     }
 }
 
