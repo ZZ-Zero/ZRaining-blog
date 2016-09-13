@@ -2,6 +2,13 @@
   "name": "hexo-site",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "start": "hexo g;hexo algolia;hexo d",
+    "deploy": "hexo g;hexo d",
+    "fuck": "hexo clean;hexo g;hexo algolia;hexo d",
+    "build": "hexo g;hexo algolia",
+    "photo": "node upPhoto"
+  },
   "hexo": {
     "version": "3.1.1"
   },

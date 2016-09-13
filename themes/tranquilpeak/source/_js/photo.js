@@ -21,9 +21,9 @@
             for (var i = begin; i < end && i < data.length; i++) {
                 var size = '20'
                 if (i === 0) size = '100'
-                if (i > 0 && i <= 2) size = '50'
-                if (i > 2 && i <= 8) size = '33'
-                if (i > 8 && i <= 24) size = '25'
+                if (i > 0 && i <= 4) size = '50'
+                if (i > 4 && i <= 16) size = '33'
+                if (i > 16 && i <= 48) size = '25'
 
                 li += '<div class="figure fig-'+size+'" style="width:;">\
                         <a class="fancybox" href="http://od4j70p7r.bkt.clouddn.com/'+ data[i] +'" title="" data-fancybox-group="" target="_blank" rel="external">\

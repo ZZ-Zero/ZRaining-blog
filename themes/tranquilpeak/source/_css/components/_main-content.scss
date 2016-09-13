@@ -4,10 +4,14 @@
     margin:        0 auto;
     padding-right: map-get($main-content, padding-right-left);
     padding-left:  map-get($main-content, padding-right-left);
-    >* {
-        transition: color .6s;
+    >*:not(.ZZZeroPhoto) {
+        transition: .5s;
+        opacity: .85;
         &:hover {
-            color: darken(map-get($sidebar, active-color),40);
+            // color: darken(map-get($sidebar, active-color),40);
+            text-shadow: 0 0 2px rgba(0,0,0,.1);
+            // transform: scale(1.02);
+            opacity: 1;
         }
     }
 }

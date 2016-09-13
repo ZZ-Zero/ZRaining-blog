@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: /
+url: http://zz-zero.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -99,7 +99,9 @@ algolia:
     - excerpt:strip
 
 
-#feed:
-#  type: atom       #feed 类型 (atom/rss2)
-#  path: atom.xml   #rss 路径
-#  limit: 20        #在 rss 中最多生成的文章数(0显示所有)
+feed:
+  type: atom       #feed 类型 (atom/rss2)
+  path: atom.xml   #rss 路径
+  limit: 0        #在 rss 中最多生成的文章数(0显示所有)
+
+
