@@ -26,7 +26,7 @@
                 if (i > 16 && i <= 48) size = '25'
 
                 li += '<div class="figure fig-'+size+'" style="width:;">\
-                        <a class="fancybox" href="http://od4j70p7r.bkt.clouddn.com/'+ data[i] +'" title="" data-fancybox-group="" target="_blank" rel="external">\
+                        <a class="fancybox" href="http://od4j70p7r.bkt.clouddn.com/'+ data[i] +'-normal.jpg" title="" data-fancybox-group="" target="_blank" rel="external">\
                             <img class="fig-img" src="http://od4j70p7r.bkt.clouddn.com/'+ data[i] +'-mini" alt="">\
                         </a>\
                     </div>'
