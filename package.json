@@ -10,11 +10,11 @@
     "photo": "node upPhoto"
   },
   "hexo": {
-    "version": "3.1.1"
+    "version": "3.3.7"
   },
   "dependencies": {
     "algoliasearch": "^3.18.1",
-    "hexo": "3.1.1",
+    "hexo": "^3.1.1",
     "hexo-algoliasearch": "^0.2.1",
     "hexo-deployer-git": "^0.1.0",
     "hexo-generator-archive": "^0.1.2",

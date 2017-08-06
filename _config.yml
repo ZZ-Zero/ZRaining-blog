@@ -78,8 +78,8 @@ server_ip: localhost #本地服务器地址
 logger: false
 logger_format: dav
 plugins:
-    - hexo-generator-feed
-    - hexo-generator-sitemap
+  hexo-generator-feed
+  hexo-generator-sitemap
 
 # 搜索
 algolia:
