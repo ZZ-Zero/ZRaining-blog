@@ -69,7 +69,10 @@ theme: tranquilpeak
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:ZZ-Zero/ZZ-Zero.github.io.git
+  repository: 
+    github: git@github.com:ZZ-Zero/ZZ-Zero.github.io.git
+    coding: git@git.coding.net:ZZZero/ZZZero-hexopage.git
+  branch: master
 
 
 #Server 
