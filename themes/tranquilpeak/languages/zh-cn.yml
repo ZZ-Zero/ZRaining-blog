@@ -19,6 +19,7 @@ global:
     linkedin: "LinkedIn"
     mail: "邮箱"
     rss: "RSS"
+    photo: "相册"
     share_on_google_plus: "分享到 Google+"
     share_on_facebook: "分享到 Facebook"
     share_on_twitter: "分享到 Twitter"

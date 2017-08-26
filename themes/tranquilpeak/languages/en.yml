@@ -19,6 +19,7 @@ global:
     linkedin: "LinkedIn"
     mail: "Mail"
     rss: "RSS"
+    photo: "Photo"
     share_on_google_plus: "Share on Google Plus"
     share_on_facebook: "Share on Facebook"
     share_on_twitter: "Share on Twitter"

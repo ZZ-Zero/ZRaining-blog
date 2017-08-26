@@ -60,7 +60,7 @@ sidebar:
 
     others:
         photos:
-            title: 相册
+            title: global.photo
             url: /photo
             icon: camera-retro
         friends:
@@ -113,7 +113,7 @@ sidebar:
 #     class: open-algolia-search
 header:
     right_link:
-        url: /#about
+        url: http://home.zz-zero.com/
         icon:
         class:
 
