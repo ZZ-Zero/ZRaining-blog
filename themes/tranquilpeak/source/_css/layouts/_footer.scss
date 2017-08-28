@@ -5,4 +5,20 @@
     margin-top: 70px;
     height:     auto;
     padding:    20px 20px;
+    a {
+        color: inherit;
+    }
+    .copyrights {    
+        opacity: .6;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    p {
+        font-size: map-get($font-size, small);
+        opacity: .6;
+        &:hover {
+            opacity: 1;
+        }
+    }
 }
