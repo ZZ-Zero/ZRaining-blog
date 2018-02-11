@@ -70,7 +70,7 @@ theme: tranquilpeak
 deploy:
   type: git
   repository: 
-    github: git@github.com:ZZ-Zero/ZZ-Zero.github.io.git
+    # github: git@github.com:ZZ-Zero/ZZ-Zero.github.io.git
     coding: git@git.coding.net:ZZZero/ZZZero-hexopage.git
   branch: master
 
