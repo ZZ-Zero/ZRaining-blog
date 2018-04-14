@@ -55,7 +55,7 @@
                 color:   map-get($sidebar, color);
                 display: block;
                 height:  100%;
-
+                box-sizing: border-box;
                 transition: 0.2s;
 
                 &:hover,
