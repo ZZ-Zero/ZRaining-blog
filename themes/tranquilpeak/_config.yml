@@ -59,10 +59,10 @@ sidebar:
             icon: terminal
 
     others:
-        photos:
-            title: global.photo
-            url: /photo
-            icon: camera-retro
+        # photos:
+        #     title: global.photo
+        #     url: /photo
+        #     icon: camera-retro
         friends:
             title: Friends
             url: /links
