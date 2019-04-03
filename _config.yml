@@ -86,21 +86,9 @@ plugins:
 
 # 搜索
 algolia:
-  appId: "3PNB36CARN"
-  apiKey: "02466e369933aa0d69ef8f7357e45245"
-  adminApiKey: "055bd78cacef5e816bf389e7b036e90e"
-  chunkSize: 5000
-  indexName: "tranquilpeak"
-  fields:
-    - title
-    - date
-    - permalink
-    - thumbnailImageUrl
-    - tags
-    - categories
-    - excerpt
-    - excerpt:strip
-
+  applicationID: "NXA39UUOUK"
+  apiKey: "ea36e2921ec21fd9adaefe67a1ce899a"
+  indexName: "ZZZero-blog"
 
 feed:
   type: atom       #feed 类型 (atom/rss2)

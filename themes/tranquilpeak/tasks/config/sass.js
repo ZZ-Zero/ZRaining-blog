@@ -1,8 +1,11 @@
 module.exports = function(grunt) {
+  const sass = require('node-sass');
+
   grunt.config.set('sass', {
     // Compile `tranquilpeak.scss` file into `tranquilpeak.css`
     dev: {
       options: {
+        implementation: sass,
         sourceMap: false
       },
       files: {
