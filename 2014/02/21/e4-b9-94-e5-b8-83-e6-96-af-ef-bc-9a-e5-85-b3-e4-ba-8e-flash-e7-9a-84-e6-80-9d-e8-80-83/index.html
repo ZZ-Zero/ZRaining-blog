@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>乔布斯：关于 Flash 的思考 | ZRaining</title><meta name="author" content="ZRaining"><meta name="copyright" content="ZRaining"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="乔布斯关于Flash的一些看法  苹果与 Adobe 的关系由来已久。Adobe 的创始人还在那如今已成传说的车库中工作时，我们就已经认识了。苹果是他们的第一个大客户，将他们的 Postscript 语言改为我们当时新推出的 Laserwriter 打印机所用。在很多年里，苹果都是 Adobe 的股东之一，拥有其 20% 的股权。两家公司通力合作，开创了桌面电脑出版业，其中有不少快乐的时光，但那段">
+<meta property="og:type" content="article">
+<meta property="og:title" content="乔布斯：关于 Flash 的思考">
+<meta property="og:url" content="https://zz-zero.github.io/ZRaining-blog/2014/02/21/e4-b9-94-e5-b8-83-e6-96-af-ef-bc-9a-e5-85-b3-e4-ba-8e-flash-e7-9a-84-e6-80-9d-e8-80-83/index.html">
+<meta property="og:site_name" content="ZRaining">
+<meta property="og:description" content="乔布斯关于Flash的一些看法  苹果与 Adobe 的关系由来已久。Adobe 的创始人还在那如今已成传说的车库中工作时，我们就已经认识了。苹果是他们的第一个大客户，将他们的 Postscript 语言改为我们当时新推出的 Laserwriter 打印机所用。在很多年里，苹果都是 Adobe 的股东之一，拥有其 20% 的股权。两家公司通力合作，开创了桌面电脑出版业，其中有不少快乐的时光，但那段">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zz-zero.github.io/ZRaining-blog/img/user-miku.jpg">
+<meta property="article:published_time" content="2014-02-21T15:55:48.000Z">
+<meta property="article:modified_time" content="2025-09-05T17:28:09.823Z">
+<meta property="article:author" content="ZRaining">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zz-zero.github.io/ZRaining-blog/img/user-miku.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "乔布斯：关于 Flash 的思考",
+  "url": "https://zz-zero.github.io/ZRaining-blog/2014/02/21/e4-b9-94-e5-b8-83-e6-96-af-ef-bc-9a-e5-85-b3-e4-ba-8e-flash-e7-9a-84-e6-80-9d-e8-80-83/",
+  "image": "https://zz-zero.github.io/ZRaining-blog/img/user-miku.jpg",
+  "datePublished": "2014-02-21T15:55:48.000Z",
+  "dateModified": "2025-09-05T17:28:09.823Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "ZRaining",
+      "url": "https://zz-zero.github.io/ZRaining-blog"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/ZRaining-blog/"><link rel="canonical" href="https://zz-zero.github.io/ZRaining-blog/2014/02/21/e4-b9-94-e5-b8-83-e6-96-af-ef-bc-9a-e5-85-b3-e4-ba-8e-flash-e7-9a-84-e6-80-9d-e8-80-83/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/ZRaining-blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f02b45c6770cbf86ff457bbb50a23962";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/ZRaining-blog/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '乔布斯：关于 Flash 的思考',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg" style="background-image: url(/ZRaining-blog/img/cover-miku1.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/ZRaining-blog/img/user-miku.jpg" onerror="this.onerror=null;this.src='/ZRaining-blog/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/ZRaining-blog/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/ZRaining-blog/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/ZRaining-blog/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/ZRaining-blog/links/"><i class="fa-fw fas fa-link"></i><span> 致谢</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://500px.com.cn/ZRaining"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background: transparent;"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/ZRaining-blog/"><span class="site-name">ZRaining</span></a><a class="nav-page-title" href="/ZRaining-blog/"><span class="site-name">乔布斯：关于 Flash 的思考</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/ZRaining-blog/links/"><i class="fa-fw fas fa-link"></i><span> 致谢</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://500px.com.cn/ZRaining"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">乔布斯：关于 Flash 的思考</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2014-02-21T15:55:48.000Z" title="发表于 2014-02-21 23:55:48">2014-02-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-05T17:28:09.823Z" title="更新于 2025-09-06 01:28:09">2025-09-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/ZRaining-blog/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB/">技术类</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>乔布斯关于Flash的一些看法</p>
+<!-- excerpt -->
+<p>苹果与 Adobe 的关系由来已久。Adobe 的创始人还在那如今已成传说的车库中工作时，我们就已经认识了。苹果是他们的第一个大客户，将他们的 Postscript 语言改为我们当时新推出的 Laserwriter 打印机所用。在很多年里，苹果都是 Adobe 的股东之一，拥有其 20% 的股权。两家公司通力合作，开创了桌面电脑出版业，其中有不少快乐的时光，但那段黄金时代一过，我们便分道扬镳了。苹果经历了濒死的过程，Adobe 凭其 Acrobat 产品进入了企业市场。今天，两家公司仍然同心协力为创意产业的客户服务——Adobe 的 Creative Suite 软件的顾客里，有大约一半是苹果电脑用家。但除此之外，我们几乎没有别的共同利益了。</p>
+<p>我想在这里记下自己关于 Adobe 的 Flash 的一些想法，希望我们的顾客以及批评家们能够更好地理解为什么我们不允许 Flash 在 iPhone, iPod 和 iPad 上运行。在 Adobe 口中，我们这一决定背后主要的驱动力是商业上的考量。他们说，我们是为了保护自己的 App Store。但事实上，这里的问题主要是技术问题。Adobe 说，苹果是一个封闭系统，Flash 则是开放的，但他们恰恰说反了。我来解释一下吧。</p>
+<p>首先，谈谈「开放」。</p>
+<p>Adobe 的 Flash 是 100% 的私有软件。你只能从 Adobe 处获取 Flash，并且 Flash 在未来的改进、定价等等，完全受到 Adobe 一家的左右。尽管 Flash 和相关产品的应用十分广泛，但这并不等于说它们是开放的，因为它们完全处于 Adobe 的控制之下，并且你也只能从 Adobe 那里获得它们。无论怎么定义，Flash 都是一个封闭系统。</p>
+<p>苹果也有很多专有性的产品。虽然 iPhone、iPod 和 iPad 的操作系统是私有的，但我们完全相信与万维网相关的所有标准都应该开放。我们没有用 Flash，而是选择了 HTML5, CSS 和 JavaScript，它们全都是开放标准。苹果的所有移动设备都与生俱来地对这些开放标准有着良好的支持：运行速度快，用电量低。HTML5 是万维网上的新标准，为苹果、谷歌以及很多其他公司所采用。网页开发者利用 HTML5 就能做出高级的图像、字体、动画以及过渡效果，而不必倚赖第三方插件（例如 Flash）。HTML5 完全开放，并受一个标准委员会控制。苹果是该委员会的成员之一。</p>
+<p>苹果甚至还为万维网创造了一些开放标准。例如，我们从一个小型开源项目出发，做出了 WebKit。WebKit 是一个完全开源的 HTML5 页面转译引擎，我们所有产品中的 Safari 浏览器的内核用的都是它。WebKit 也广泛被别家公司所采用。谷歌在其 Android 系统的浏览器里用它，Palm 用它，诺基亚用它，RIM（黑莓）最近也宣布将会改用它。除了微软以外，几乎所有智能手机里的浏览器用的都是 WebKit。苹果通过开放自己的 WebKit 技术，为移动网页浏览器订下了标准。</p>
+<p>第二，谈谈「完整的互联网」。</p>
+<p>Adobe 反复说苹果的移动设备无法访问「完整的互联网」，因为网上 75% 的视频用的是 Flash。他们没有提及的是，几乎所有这些视频，同时也以一种更加摩登的格式——H.264——存在于网上，用 iPhone、iPod 和 iPad 都能看。YouTube 占有线上视频大约 40% 的份额，它在苹果所有的移动设备中都以一个软件的形式存在，运行得极为顺畅。其中，iPad 上的 YouTube 所提供的搜寻及观看视频的体验或许可以算作各家之冠。除此之外，还有 Vimeo、Netflix、Facebook、ABC、CBS、CNN、MSNBC、Fox News、ESPN、NPR、《时代》、《纽约时报》、《华尔街日报》、《体育画报》、《人物》、《国家地理》（美国），以及很多很多。没有多少线上视频是 iPhone, iPod 和 iPad 的用户看不到的。</p>
+<p>Adobe 还宣称说，苹果的设备玩不了 Flash 游戏。这不假。所幸，在 App Store 里有五万多款游戏和娱乐软件，其中很多都是免费的。iPhone、iPod 和 iPad 上的游戏和娱乐软件之数量也居于世界上众多平台之冠。</p>
+<p>第三，谈谈可靠性、安全性和性能。</p>
+<p>赛门铁克最近指出，Flash 是 2009 年最不安全的系统之一。我们有第一手资料表明，苹果电脑死机的罪魁祸首就是 Flash。我们一直在和 Adobe 合作，试图解决这些问题，但几年过去了，效果不彰。如果说，为 iPhone、iPod 和 iPad 加了 Flash 之后，会导致它们的可靠性与安全性下降，这是我们不愿看到的。</p>
+<p>此外，Flash 在移动设备上的性能也有问题。过去几年里，我们经常请 Adobe 用移动设备——任何移动设备——示范 Flash 的性能，希望看到好的表现，但至今未能如愿。Adobe 曾公开说 Flash 会于 2009 年初出现在智能手机上，后来又推迟到 2009 年下半年，然后又变成了 2010 年上半年，现在又说是 2010 年下半年了。我们相信它迟早会出现，但我们也庆幸自己没有一路等待。谁知道它到时性能会怎么样呢？</p>
+<p>第四，谈谈电池续航力。</p>
+<p>为了在播放视频时保持良好的电池续航力，移动设备必须用硬件来对视频进行解码；软件解码太费电。如今的许多移动设备中的芯片组里都包含名为 H.264 的解码器。H.264 是业界标准，每一台蓝光 DVD 播放器都用它。苹果、谷歌（YouTube）、Vimeo、Netflix 和许多其他公司也都有用。</p>
+<p>虽然 Flash 最近增加了对 H.264 的支持，但目前几乎所有 Flash 网站都需要用旧一代的解码器：移动设备里的芯片不支持它们，因此只能通过软件解码。区别是巨大的。例如，在 iPhone 上，H.264 视频可以连续播长达十小时，但通过软件解码的视频播不到五小时，电池就会用光。</p>
+<p>如果各网站把视频重新用 H.264 编码，那么用户完全不需要 Flash 也能看到。这些视频在苹果的 Safari 浏览器和谷歌的 Chrome 浏览器里都不需要任何插件就能流畅播放，在 iPhone, iPod 和 iPad 上也会赏心悦目。</p>
+<p>第五，谈谈触屏。</p>
+<p>Flash 是为个人电脑和鼠标设计的，并不适合触屏和手指。举例来说，许多 Flash 网站都用到了「光标悬停」：当用户把光标移动到某个点时，弹出菜单或其他元素。苹果革命性的多点触控介面不用鼠标，也没有光标悬停的概念。如果要支持触屏设备，大部分 Flash 网站都要重写。而如果开发者要重写 Flash 网站，为什么不用较为摩登的技术，例如 HTML5、CSS 和 JavaScript 呢？</p>
+<p>就算 iPhone、iPod 和 iPad 支持 Flash，还是不能解决大多数 Flash 网站需要重写，以便支持触屏设备的问题。</p>
+<p>第六个是最重要的问题。</p>
+<p>Flash 封闭、私有、有重大技术问题、不支持触屏技术。除此之外，还有一个更加重要的理由，让我们决定不让它在 iPhone、iPod 和 iPad 上跑。我们刚才谈过了用 Flash 播放视频与展示网站上的互动内容的弊病，但 Adobe 还希望开发者用 Flash 来编写跑在我们的移动设备上的软件。</p>
+<p>过去的痛苦经历让我们了解到，在平台和开发者之间加多一层第三方软件层，最终会导致大量不够水准的软件，并对整个平台的进步与发展起到负面作用。如果开发者开始依赖于第三方的库与工具，那么他们将受制于这个第三方：只有当第三方采纳了整个平台引进的新特性之后，开发者才能够利用它们。我们自己的平台的改善何时能够传递到开发者手中，不能由一个第三方来决定。</p>
+<p>当这个第三方提供的是一个跨平台开发工具时，情况会变得更糟。某一个平台上的功能改善，第三方未必会立即采纳，而是可能会等到这些改善在自己支持的所有平台上出现时，才开始支持它们。因此，开发者就只有最基本的功能可用。同样，苹果无法接受这样的结果：开发者无缘接触我们的创新与功能改进，而原因却是这些创新与改进在我们的竞争对手的平台上还不存在。</p>
+<p>Flash 是一个跨平台的开发工具。Adobe 的目标不是帮助开发者写出最好的 iPhone、iPod 和 iPad 软件，他们的目标是帮助开发者写跨平台软件。在过去，Adobe 在采纳苹果的平台的改进上可谓迟缓之至。例如，Mac OS X 推出已有十年之久，但 Adobe 直到两周前发布 CS5 时才将其完全 Mac OS X 化（Cocoa 化）。在所有的重要第三方开发者里，Adobe 是最后一个完整支持 Mac OS X 的。</p>
+<p>我们的动机很简单：提供最先进、最创新的平台给开发者，希望他们能够直接站在这一平台的肩膀上，创造出前无古人的优质软件。我们希望持续改进这一平台，以便开发者们可以写出更棒、更强大、更好玩、更有用的应用程序。人人都是赢家——苹果会因为有了最好的软件而卖出更多设备，开发者会有越来越多的用户，而面对最好的、选择最广泛的软件平台，用户也会感到开心愉悦。</p>
+<p>结论。</p>
+<p>Flash 是个人电脑时代的产物，它是为个人电脑与鼠标发明的。Flash 对于 Adobe 来说是一盘成功的生意，我们也明白他们为什么希望将它延伸到个人电脑以外的领域。但在移动时代，重要的是低能耗、触控介面和开放的万维网标准。所有这些都并非 Flash 的强项。</p>
+<p>各家媒体争先恐后地为苹果的移动设备提供内容，这说明 Flash 已经不是看视频或消费任何类型的网页内容所不可或缺的了。苹果的 App Store 里的二十多万个软件证明，对于数以万计的开发者来说，编写视觉效果丰富的程序——包括游戏——并不一定要用 Flash。</p>
+<p>HTML5 等移动时代的新标准会在移动设备上（以及个人电脑上）取得胜利。或许，与其忙于批评苹果义无反顾地大步向前，Adobe 更应该专注于为未来打造优质的 HTML5 工具。</p>
+<p>史蒂夫·乔布斯<br>2010 年 4 月</p>
+</article><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/ZRaining-blog/img/user-miku.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/ZRaining-blog/2014/02/26/e5-85-b3-e4-ba-8e-e5-89-8d-e7-ab-af-e7-9a-84-e4-b8-80-e4-ba-9b-e5-a5-bd-e7-bd-91-e7-ab-99/" title="关于前端的一些好网站"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">关于前端的一些好网站</div></div><div class="info-2"><div class="info-item-1">嗯&#x3D; &#x3D; 前些日子去投简历 于是im 2.0邮件问了我这么一个问题：你经常关注那些网页或论坛？ 于是我就大致整理了一下，既然整理出来了，就放上来吧。不然也太浪费了╮(￣▽￣”)╭   所关注的网站和论坛：      技术类：[w3school](http://www.w3school.com.cn/)（前端的启蒙老师）  [thecodeplayer](http://thecodeplayer.com/) （可以直观的看到代码的编写过程和效果）  [imooc](http://www.imooc.com/)（慕课网貌似是2014年才出的网站，大概是以国外的[codecademy](http://www.codecademy.com/)为原型。给前端的学习降低了很多门槛，但是网站新建，错误和bug略多，相信之后会越做越好了。）  [w3cplus](http://www.w3cplus.com/)（这个算是一个blog了，关于css3的详解很棒，还有很多css3的工具，由于本人技术水平所限暂时只关注css3部分，当有需要的时候也会去翻一下代码方面的东西。）  [...</div></div></div></a><a class="pagination-related" href="/ZRaining-blog/2014/02/11/e7-ae-80-e5-8e-86-e5-81-9a-e5-87-ba-e6-9d-a5-e4-ba-86/" title="简历做出来了"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">简历做出来了</div></div><div class="info-2"><div class="info-item-1">about.zz-zero.com 14寸以上笔记本 720p以上手机横屏 ipad都测试过了，应该不会有啥问题。 话说……就算做出来又如何……还不是一样前途未卜_(:з」∠)_ 这么一想就觉得好忧伤。 </div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/ZRaining-blog/img/user-miku.jpg" onerror="this.onerror=null;this.src='/ZRaining-blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZRaining</div><div class="author-info-description">作为一个摄影爱好者的前端工程师，我的音乐水准绝对是最强的</div><div class="site-data"><a href="/ZRaining-blog/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/ZRaining-blog/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/ZRaining-blog/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/ZRaining-blog/2019/04/03/%E8%87%AA%E4%BF%A1%E5%B4%A9%E6%BA%83%E4%B8%8E%E7%BB%9D%E6%9C%9B%E4%B9%8B%E8%B0%B7/" title="自信崩溃与绝望之谷">自信崩溃与绝望之谷</a><time datetime="2019-04-03T02:24:00.000Z" title="发表于 2019-04-03 10:24:00">2019-04-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/ZRaining-blog/2018/02/09/parcel%EF%BC%81%E5%90%AF%E5%8A%A8%EF%BC%81/" title="parcel！启动！">parcel！启动！</a><time datetime="2018-02-09T10:15:37.000Z" title="发表于 2018-02-09 18:15:37">2018-02-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/ZRaining-blog/2018/01/08/%E4%B8%8D%E6%83%B3%E5%A4%A9%E5%A4%A9%E7%94%BB%E7%BD%91%E9%A1%B5%E4%BA%86%EF%BC%81vue%E5%A4%9A%E9%A1%B5%E9%9D%A2%E6%94%B9%E9%80%A0%EF%BC%81/" title="不想天天画网页了！vue多页面改造！">不想天天画网页了！vue多页面改造！</a><time datetime="2018-01-08T09:06:42.000Z" title="发表于 2018-01-08 17:06:42">2018-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/ZRaining-blog/2017/01/17/%E8%8A%92%E6%9E%9CTV%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%8A%82%E7%9B%AE%E4%BA%A7%E5%93%81%E5%B7%A5%E7%A8%8B%E5%8C%96%E3%80%81%E7%BB%84%E4%BB%B6%E5%8C%96%E5%AE%9E%E8%B7%B5/" title="芒果TV移动端节目产品工程化、组件化实践">芒果TV移动端节目产品工程化、组件化实践</a><time datetime="2017-01-17T15:46:22.000Z" title="发表于 2017-01-17 23:46:22">2017-01-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/ZRaining-blog/2017/01/06/%E8%8B%A6%E9%80%BC%E7%A0%81%E5%86%9C%E7%9A%84%E7%BB%AD%E5%91%BD%E8%AE%A1%E5%88%92%EF%BC%9A%E5%B0%8F%E5%9E%8Bh5%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E5%81%9A%E5%88%B0%E6%9C%89%E5%BA%8F%E5%BC%80%E5%8F%91/" title="苦逼码农的续命计划：小型h5项目如何做到有序开发">苦逼码农的续命计划：小型h5项目如何做到有序开发</a><time datetime="2017-01-06T03:31:27.000Z" title="发表于 2017-01-06 11:31:27">2017-01-06</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By ZRaining</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/ZRaining-blog/js/utils.js"></script><script src="/ZRaining-blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const abcjsInit = () => {
+    const abcjsFn = () => {
+      setTimeout(() => {
+        const sheets = document.querySelectorAll(".abc-music-sheet")
+        for (let i = 0; i < sheets.length; i++) {
+          const ele = sheets[i]
+          if (ele.children.length > 0) continue
+
+          // Parse parameters from data-params attribute
+          let params = {}
+          const dp = ele.getAttribute("data-params")
+          if (dp) {
+            try {
+              params = JSON.parse(dp)
+            } catch (e) {
+              console.error("Failed to parse data-params:", e)
+            }
+          }
+
+          // Merge parsed parameters with the responsive option
+          // Ensures params content appears before responsive
+          const options = { ...params, responsive: "resize" }
+
+          // Render the music score using ABCJS.renderAbc
+          ABCJS.renderAbc(ele, ele.innerHTML, options)
+        }
+      }, 100)
+    }
+
+    if (typeof ABCJS === "object") {
+      abcjsFn()
+    } else {
+      btf.getScript("https://cdn.jsdelivr.net/npm/abcjs/dist/abcjs-basic-min.min.js").then(abcjsFn)
+    }
+  }
+
+  if (window.pjax) {
+    abcjsInit()
+  } else {
+    window.addEventListener("load", abcjsInit)
+  }
+
+  btf.addGlobalFn("encrypt", abcjsInit, "abcjs")
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.8" zIndex="-1" mobile="true" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

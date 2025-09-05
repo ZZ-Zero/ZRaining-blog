@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Javascript Madness: Introduction | ZRaining</title><meta name="author" content="ZRaining"><meta name="copyright" content="ZRaining"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="**[Jan Wolter](http:&#x2F;&#x2F;unixpapa.com&#x2F;)** **May 6, 2008**">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript Madness: Introduction">
+<meta property="og:url" content="https://zz-zero.github.io/ZRaining-blog/2014/04/24/javascript-madness-introduction-ef-bc-88-e6-9a-82-e5-ad-98-e6-97-a5-e5-90-8e-e7-bf-bb-e8-af-91/index.html">
+<meta property="og:site_name" content="ZRaining">
+<meta property="og:description" content="**[Jan Wolter](http:&#x2F;&#x2F;unixpapa.com&#x2F;)** **May 6, 2008**">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zz-zero.github.io/ZRaining-blog/img/user-miku.jpg">
+<meta property="article:published_time" content="2014-04-24T01:08:05.000Z">
+<meta property="article:modified_time" content="2025-09-05T17:28:09.829Z">
+<meta property="article:author" content="ZRaining">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="浏览器兼容">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zz-zero.github.io/ZRaining-blog/img/user-miku.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Javascript Madness: Introduction",
+  "url": "https://zz-zero.github.io/ZRaining-blog/2014/04/24/javascript-madness-introduction-ef-bc-88-e6-9a-82-e5-ad-98-e6-97-a5-e5-90-8e-e7-bf-bb-e8-af-91/",
+  "image": "https://zz-zero.github.io/ZRaining-blog/img/user-miku.jpg",
+  "datePublished": "2014-04-24T01:08:05.000Z",
+  "dateModified": "2025-09-05T17:28:09.829Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "ZRaining",
+      "url": "https://zz-zero.github.io/ZRaining-blog"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/ZRaining-blog/"><link rel="canonical" href="https://zz-zero.github.io/ZRaining-blog/2014/04/24/javascript-madness-introduction-ef-bc-88-e6-9a-82-e5-ad-98-e6-97-a5-e5-90-8e-e7-bf-bb-e8-af-91/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/ZRaining-blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f02b45c6770cbf86ff457bbb50a23962";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/ZRaining-blog/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Javascript Madness: Introduction',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+btf.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg" style="background-image: url(/ZRaining-blog/img/cover-miku1.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/ZRaining-blog/img/user-miku.jpg" onerror="this.onerror=null;this.src='/ZRaining-blog/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/ZRaining-blog/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/ZRaining-blog/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/ZRaining-blog/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/ZRaining-blog/links/"><i class="fa-fw fas fa-link"></i><span> 致谢</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://500px.com.cn/ZRaining"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background: transparent;"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/ZRaining-blog/"><span class="site-name">ZRaining</span></a><a class="nav-page-title" href="/ZRaining-blog/"><span class="site-name">Javascript Madness: Introduction</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/ZRaining-blog/links/"><i class="fa-fw fas fa-link"></i><span> 致谢</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://500px.com.cn/ZRaining"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Javascript Madness: Introduction</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2014-04-24T01:08:05.000Z" title="发表于 2014-04-24 09:08:05">2014-04-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-05T17:28:09.829Z" title="更新于 2025-09-06 01:28:09">2025-09-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/ZRaining-blog/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB/">技术类</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/ZRaining-blog/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB/html-css-js/">html+css+js</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><center style="color: #000000;"><center style="color: #000000;">**<span style="font-size: xx-small;">[Jan Wolter](http://unixpapa.com/)</span>**
+**<span style="font-size: xx-small;">May 6, 2008</span>**</center></center>
+<span id="more"></span>
+### Introduction
+
+<p>In the course of the development of the <a target="_blank" rel="noopener" href="http://webpbn.com/">Web Paint-by-Number</a> site and various other heavy-duty Javascript applications, I’ve found it necessary to do a lot of experimentation with different browsers to figure out how they handle different things. The results have generally been nightmarish, with truly impressive ranges of bizarre and strange behavior.</p>
+<p>These pages summarize my results in a few areas, mainly having to do with event handling. I wrote them up largely for my own future reference. I have found very little of this information available elsewhere on the web.</p>
+<p>Ideally, we would be able to write single Javascript programs that would work on all browsers. In practice, this is only possible if you are willing give up a lot of functionality. Many of the features used in the Web Paint-by-Number site would have been impossible in implement without first sensing the browser type and then selecting different code to run for different browsers, or different versions of the same browser. Sad, but true.</p>
+<p>Worse, due to bad design and shear bugginess, there are perfectly simple things that cannot be reliably done on some browsers, like identifying with certainty which key was pressed to trigger a <strong>keydown</strong> event or recognizing when the second click of a double-click occurs.</p>
+<p>If you are a programmer trying to sort these things out, you might consider adopting one of the freely available Javascript toolkits on the web. Some of them can help insulate you from this kind of low-level headaches described in this page. Surveying such toolkits is beyond the scope of these pages, however. I recommend that you google “Javascript toolkit” and see what you find.</p>
+<p>All the programs and code fragments that I have written for these pages can be treated as being in the public domain, free of copyright, OK to use in any way without any legal restrictions. You are encouraged to apply the information and techniques described here anywhere you find them useful without restriction. The text of the articles themselves are all copyrighted by Jan Wolter, however.</p>
+<p>You can also take it as given that I offer all the code and information on these pages without warranty or guarantee of it’s correctness or suitability for use. So don’t sue me.</p>
+<h3 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h3><dl style="color: #000000;"><dt>[Mouse Events](http://unixpapa.com/js/mouse.html)</dt><dd>Madness in the handling of mouse events. Which events are fired when you click or double-click with the left, right or middle mouse button on various browsers. </dd></dl>
+
+<p><a target="_blank" rel="noopener" href="http://unixpapa.com/js/key.html">Key Events</a>Madness in the handling of keyboard events. Which events are fired when you hit or release a key or allow it to auto-repeat in various browsers. The demented strangeness of key codes which may or may not identify which key was hit.</p>
+<p><a target="_blank" rel="noopener" href="http://unixpapa.com/js/dyna.html">Dynamic Script Loading</a>A study of a method of loading additional Javascript functions on demand after the rest of the page has already been loaded. As usual, many browser incompatibilities are discovered.</p>
+<p><a target="_blank" rel="noopener" href="http://unixpapa.com/js/sleep.html">The Javascript Sleep Deficiency</a>Does Javascript have some equivalent to the <tt>sleep()</tt> function that other languages use to pause execution for a bit? Yes, it can be done, but only horribly. <a target="_blank" rel="noopener" href="http://unixpapa.com/js/convert.html">Treacherous Type Conversions</a>A (hopefully informative) rant about string&#x2F;number type conversions in Javascript. <a target="_blank" rel="noopener" href="http://unixpapa.com/js/gecko.html">Layout Engines and Gecko Versions</a>Why I talk about “Gecko” instead of “Firefox” in the above notes. Which versions of Gecko are used by various browsers and a few notes on other layout engines. <a target="_blank" rel="noopener" href="http://unixpapa.com/js/compress.html">KISS Javascript Compression</a>Some thoughts on compressing Javascript code. <a target="_blank" rel="noopener" href="http://unixpapa.com/js/querystring.html">Parsing Query Strings</a>How to read arguments from the URL in Javascript, with a long digression into the many problems with Javascript’s built-in URI encoding and decoding functions.</p>
+<h3 id="Ill-Informed-Grousing-About-Browsers"><a href="#Ill-Informed-Grousing-About-Browsers" class="headerlink" title="Ill-Informed Grousing About Browsers"></a>Ill-Informed Grousing About Browsers</h3><p>For years I have used this section to vent my annoyance at all these crummy browsers. While other people touted their favorite browsers, I’d grown to dislike them all for various reasons and in various degrees.</p>
+<p>But things have changed. Browsers have actually gotten pretty good at supporting the basic needs of Javascript programmers. It’s kind of astonishing.</p>
+<dl style="color: #000000;"><dt>**Internet Explorer**</dt><dd>For a very long time, Internet Explorer has been the leading source of headaches for web developers. IE started out buggy and incompatible, and then development pretty much stopped between 2000 and 2006\. While other browsers got better, the one most people used just kept stinking. Virtually all web developers got to hate it, because everything had to be carefully programmed to work around all it's bugs. But then a miracle happened. As far as I can tell, Internet Explorer 9 is a fully capable modern browser, that supports the core standards as competently as any of it's competitors. It's actually OK. It really is. IE OK? IE OK. IE OK! My brain can't quite grasp it, but it seems to be true. </dd></dl>**Firefox**
+
+<p>Long ago the Netscape browser introduced many of the key innovations that made browsers cool, but Netscape went bust and the Mozilla foundation picked up the pieces to rebuild that musty old code into the leading open source browser. The Mozilla developers generally proceed at a rather plodding pace. They are hardly ever the first, but they keep up. Minor bugs often seem to take years to get fixed, but new releases rarely introduce new bugs. The Mozilla developers never seem to participate in the races to be the first and the fastest that periodically break out between the Safari and Opera teams. When Mozilla releases a new browser, I don’t expect to see as many exciting changes as in a new Opera or Safari, but I don’t expect to see major new bugs introduced either. Once Firefox was just one of many browsers using Mozilla’s Gecko rendering engine, but while others still exist, the have increasingly fallen by the wayside. New browsers these days are more likely to be based on Webkit than Gecko.</p>
+<p><strong>Safari</strong></p>
+<p>This used to be the browser that causes me the least headaches. If you wrote code to work on IE and Firefox, then it pretty much always worked on Safari. Up through version 3.0 there were lots of signs of very careful thought going into their design choices, clear attempts to balance compatibility with sanity. In terms of compatibility and correctness, Safari seemed to have overtaken everything else. Then it seemed like their competitive exuberance began getting the best of them. For example, they greatly hyped their new faster regular expressions, but they <a target="_blank" rel="noopener" href="http://blog.mozilla.com/dmandelin/2008/10/06/squirrelfishing-in-regexp-dnajs/">weren’t</a> always as fast as the hype suggested and they were sufficiently buggy that I had to entirely rewrite my most complex regex application not to use regular expressions anymore. This hasty, benchmark-driven development style, this race to be first and fastest, risks undermining an otherwise terrific browser.</p>
+<p> <strong>Chrome</strong></p>
+<p>Chrome uses the same open source rendering engine as Safari, so for my purposes it is mostly the same. It’s most notable for a very fast release cycle.</p>
+<p> <strong>Opera</strong></p>
+<p>This is the browser that has caused me the most headaches over the years. When Mozilla’s developers seem mired in bureaucracy, and Microsoft’s developers are only just finding their desks again after a seven year vacation, Opera’s developers was always speedy and nimble. Every release was different from the last. Old bugs turn into different bugs, new bugs are introduced, and sometimes a bug is even fixed. Every bug I ever reported to them was changed in a subsequent release, though generally they were not actually fixed for a long time. I sometimes wished they would slow down and figure out how things are supposed to work instead of patching patches. Tracking what did and did not work in Opera was a constant headache. But, as with IE, recent versions have pretty much settled down to a fairly good approximation of correctness.</p>
+<p><strong>Konqueror</strong></p>
+<p>This browser is a lot better than one would reasonably expect from something with so little visibility. Safari and Chrome were derived from it, but the relationship doesn’t always show. In mouse and key event handling, they are very different. It doesn’t always seem like the fixes Apple makes get back to the Konqueror people.</p>
+<p> <strong>Netscape 4</strong></p>
+<p>Obviously nobody uses this anymore. It is sometimes included in these reports because it was the source of many defacto standards that newer browser more or less emulate, so it gives a little historical context to all this that can help make more sense of it all.</p>
+<p><strong>Mosaic</strong></p>
+<p>Ah, the simple pioneer days. I remember them well. No Javascript. No style sheets. No frames. No tables. I should go back to Mosaic, and stop worrying. This page renders great in Mosaic.</p>
+<p>（暂存 日后翻译</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/ZRaining-blog/tags/javascript/">javascript</a><a class="post-meta__tags" href="/ZRaining-blog/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9/">浏览器兼容</a></div><div class="post-share"><div class="social-share" data-image="/ZRaining-blog/img/user-miku.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/ZRaining-blog/2014/05/20/js-e5-ae-9e-e7-8e-b0-e7-a7-bb-e5-8a-a8-e7-ab-af-e6-9a-82-e6-97-b6-e7-a6-81-e6-ad-a2-e9-a1-b5-e9-9d-a2-e6-bb-9a-e5-8a-a8/" title="js实现移动端暂时禁止页面滚动"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">js实现移动端暂时禁止页面滚动</div></div><div class="info-2"><div class="info-item-1">感谢飞豹哥提供的思路： body.bind(‘touchstart’, function() {ispop&#x3D;true or false; } body.bind('touchmove', function() { if(ispop){event.preventDefalut()}}  </div></div></div></a><a class="pagination-related" href="/ZRaining-blog/2014/04/21/e5-85-b3-e4-ba-8e-e9-ab-98-e5-ba-a6-e8-87-aa-e9-80-82-e5-ba-94/" title="用纯css方法实现高度自适应"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">用纯css方法实现高度自适应</div></div><div class="info-2"><div class="info-item-1">如果想做出有趣的web小程序或者绚丽的web效果，高度自适应很多时候是一道必须要面对的坎。 于是这里简单记载以下几种高度自适应的思路   height100%大法：最简单的，也就是用height100%大法，不过要记得逐级100%化高度，中间主要是漏了任何一层都会导致错误，如果是表单更不要忘了100%form。不过这种方法只适合100%满高度，如果想加个合适的外边界就很困难了，因为百分比在不同的分辨率下差异太大，也许1080p屏幕下很合适的百分比，到了765p的笔记本就成了肥厚的一大条。 js剪裁法：另外一种比较常见的，js裁剪法，用js获取浏览器可视高度然后减去自己想要的边框高度。再搭上onload和onresize事件。这种方法也比较容易，当毕竟是js，载入需要消耗时间，并非一出场就是完美的高度，十分影响用户体验。 absolute大法：最后，是某前端前辈教我的毁天灭地大绝招：absolute top：0 ；bottom：0 ，经检验效果绝佳w~ 若需要有边框高度调节top和bottom的大小即可。简单粗暴便利，居家旅行布局排版必备绝招。  以上三种方法可据实际情况混合使用，...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/ZRaining-blog/2014/12/05/e4-b8-ba-e4-bb-80-e4-b9-88-e8-a6-81-e7-94-a8react-ef-bc-9f-ef-bc-88why-react-ef-bc-89/" title="为什么要用React？（Why React?）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2014-12-05</div><div class="info-item-2">为什么要用React？（Why React?）</div></div><div class="info-2"><div class="info-item-1">[ZZZero](http://www.zz-zero.com)自翻，转载请注明出处。 原文：[http://facebook.github.io/react/docs/why-react.html](http://facebook.github.io/react/docs/why-react.html)  为什么我们要用React?React 是一个被创造且已经被用于Facebook和Instagram上的JavaScript库，许多人选择React作为MVC中的V。 我们创造React是为了解决一个问题：如何构建大型以及数据实时变化的应用。 对于这个问题，React提出了两个主要观点。 简单它的简单表现在如何实时展示你的app所需的界面，当你的数据发生变化时，React将自动完成所有UI的更新。 直观当数据发生变化时，React概念上会点击一个类似“刷新”的按钮，然后便了解了所有需要及时更新变化的部分。 构建可组合的部件React所有的内容都是为了能够构建可重复使用的组件。事实上，使用React你能做的唯一一件事就是构建组件。由于它的封装，其组件能让代码的重构、测试、解耦变得...</div></div></div></a><a class="pagination-related" href="/ZRaining-blog/2015/03/10/e5-8e-9f-e7-94-9fjavascript-e5-b0-81-e8-a3-85cookie-e5-92-8cajax/" title="原生Javascript封装cookie和ajax"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2015-03-10</div><div class="info-item-2">原生Javascript封装cookie和ajax</div></div><div class="info-2"><div class="info-item-1">Orz 最近各种框架大行其道，jQuery一手遮天的时代差不多过去了。不用jq了，某些框架对一些原生的蛋疼玩意又没啥封装，于是自己动手丰衣足食~  Cookiew3c上就有对cookie的简单封装，不过某些细节没照顾到，于是对w3c设置cookie的函数做了一些简单的补充扩展 [javascript]function getCookie(c_name) {    if (document.cookie.length&amp;gt;0) {        c_start&#x3D;document.cookie.indexOf(c_name + &quot;&#x3D;&quot;)        if (c_start!&#x3D;-1) {            c_start&#x3D;c_start + c_name.length+1            c_end&#x3D;document.cookie.indexOf(&quot;;&quot;,c_start)            if (c_end&#x3D;&#x3D;-1) c_end&#x3D;docum...</div></div></div></a><a class="pagination-related" href="/ZRaining-blog/2014/11/10/zzzero-e7-9a-84node-e6-8a-98-e8-85-be-e6-97-a5-e8-ae-b0-e5-87-86-e5-a4-87-e7-af-87/" title="ZZZero的node折腾日记——准备篇"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2014-11-10</div><div class="info-item-2">ZZZero的node折腾日记——准备篇</div></div><div class="info-2"><div class="info-item-1">最开始折腾node时候随手写的一些小玩意_(:з」∠)_  Js，作为一门完备的语言。语法自由，变化多端，方便快捷。相信每一个前端开发者都会为之深深着迷。 Orz 然而js的历史地位却一直不被承认。一直以来这门图灵完备的计算机语言大多数情况下所担当的工作不过是做做特效、扭一扭、弹个框框、看一下邮箱电话格式是否正确……  (╯‵□′)╯︵┻━┻尼玛啊夭寿啊让不让人过日子了！！！！老娘可是正正经经的一门语言啊！！！ ——ZZZero《Javascript成长史》  之后由于apple和google俩后爹的照料，javascript终于迎来了人参中第一个春天。  依稀记得那时一个阳光明媚的日子，我认了两干爹。G爹是土豪，叫来了一帮世界顶级的工程师给我的破三轮量身打造一个牛X闪闪的V8引擎。A爹是大佬，带着一群小弟把一直欺负我的flash狠狠抽了一顿。从此我每天坐着v8引擎的三轮车叱咤江湖，成了Browser街的一霸。 ——ZZZero《Javascript自传——我的干爹你无法复制》  ajax的出现，html5的崛起赋予了这门语言超乎寻常的魔力。简单快速高兼容，js如同一阵风卷起了w...</div></div></div></a><a class="pagination-related" href="/ZRaining-blog/2015/02/02/react-e6-95-99-e7-a8-8b/" title="React教程"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2015-02-02</div><div class="info-item-2">React教程</div></div><div class="info-2"><div class="info-item-1">[ZZZero](http://www.zz-zero.com/)自翻，转载请注明出处。 原文：http://facebook.github.io/react/docs/tutorial.html  教程我们会建立一个简单但真实的评论框，你可以放到一个blog中，其中实时评论的基础版本来源于Disqus,LiveFyre和Facebook的评论。 我们将提供以下内容：  一个包含所有评论的视图框  一个表单用于提交所有评论  为你提供一个自定义后台链接它也将包含一些简洁的功能：  优化评论：评论保存在服务器之前就添加到评论列表中，因此用户体验如此迅速。  实时更新：实时弹出其他用户的最新评论。  支持Markdown编辑：用户可以使用Markdown去编辑文字。源代码地址：https://github.com/reactjs/react-tutorial   运行一个服务器虽然它不是入门教程的必需品，但稍后我们将添加向服务器发送_POST_ing请求的功能。如果你对这些东西十分熟悉并且想创建你自己的服务器的话更好。为了让你尽可能的安心学习React不用去担心服务器方面的错误，我们...</div></div></div></a><a class="pagination-related" href="/ZRaining-blog/2017/01/17/%E8%8A%92%E6%9E%9CTV%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%8A%82%E7%9B%AE%E4%BA%A7%E5%93%81%E5%B7%A5%E7%A8%8B%E5%8C%96%E3%80%81%E7%BB%84%E4%BB%B6%E5%8C%96%E5%AE%9E%E8%B7%B5/" title="芒果TV移动端节目产品工程化、组件化实践"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2017-01-17</div><div class="info-item-2">芒果TV移动端节目产品工程化、组件化实践</div></div><div class="info-2"><div class="info-item-1"> 从入职第一个项目后，就开始了工程化和组件化的想法。平均每个月1.4个新项目的节奏里，穿插在各个间隙中不断开发修改，直到今日，总算是大致组建完毕……  半年前入的职，看到代码的时候吓得我下巴都不知飞哪里了…… 没有任何文档、起码两种以上的编程习惯、顶部漫天的全局变量、莫名其妙的重复方法、格式没有统一规范、上线代码不经过任何处理、项目很小代码量却巨大。出了点问题去问之前的码工，“我不知道…… 这个代码也是之前的人写的。” ……祖传代码  后来做了几个项目后也就大致理解了。不是不做……是根本没时间思考。20人2个月的工作被压缩到现阶段2个人身上，能做的也就是打个逗号，加个对象，一股脑往下写。完全没精力去思考架构方面的东西。  不要跟我说什么架构，拿起键盘一梭子就是干！  我成了一名光荣的页面生成师…… (╯‵□′)╯︵┻━┻ 搞卵子啊！     为了能多活两年，这代码是打死我都不能写的。于是组件工程化就势在必行了…… 需求整理入职后主要负责芒果TV移动端节目产品的制作，周期短、工时紧张、项目准备不充分、流程无法保障。 针对以上特点，对工程化计划提出以下需求  热更新   减少开发和后...</div></div></div></a><a class="pagination-related" href="/ZRaining-blog/2016/02/15/%E6%9E%9C%E7%84%B6deadLine%E6%89%8D%E6%98%AF%E7%AC%AC%E4%B8%80%E7%94%9F%E4%BA%A7%E5%8A%9B/" title="果然deadLine才是第一生产力"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2016-02-15</div><div class="info-item-2">果然deadLine才是第一生产力</div></div><div class="info-2"><div class="info-item-1"> ZZZero4.0诞生啦~  以前一直用的wordpress，不过用的比较浅，主要还是集中在前端阶段。wp陪伴了我整个前端入门的过程。一个以前从未接触过编程的经贸系少年，租用了一份虚拟主机，开始使用Linux，捣鼓ubuntu，接触命令行。看看wp文档中的php函数修修改改。  然后很自然开始编写自己的第一个wp主题 —— ZZZero1.0一个巨丑无比毫无审美可言的blog。 Orz恩，当时觉得很满足了，然后屁颠屁颠的跑到深圳去找工作。（现在想起来简直碧莲23333一顿受挫后受亲朋们点评，然后灵感炸裂。顶着无业在深的压力一周内编写出自认为狂炫酷屌炸天的主题 —— ZZZero2.0终成功入职。 然而毕竟是自己赶工出来的方案，虽然炫酷无比但是细节确十分粗糙。在工作一段时间后越发觉得当年写的东西不堪入目。然后换成了某原生主题自己加以改造，ZZZero迈入3.0。 并且从当年的追求炫酷屌炸天变成了以实用适用为主的思维方式。多年的中二病终于在工作的磨砺中得以改善。  去年的时候就听说过Hexo，当时并不理解静态博客的概念，但是被其简介的样式所吸引。以前一直用的wp，功能上就决定了其整...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/ZRaining-blog/img/user-miku.jpg" onerror="this.onerror=null;this.src='/ZRaining-blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">ZRaining</div><div class="author-info-description">作为一个摄影爱好者的前端工程师，我的音乐水准绝对是最强的</div><div class="site-data"><a href="/ZRaining-blog/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/ZRaining-blog/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/ZRaining-blog/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Contents"><span class="toc-number">1.</span> <span class="toc-text">Contents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ill-Informed-Grousing-About-Browsers"><span class="toc-number">2.</span> <span class="toc-text">Ill-Informed Grousing About Browsers</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/ZRaining-blog/2019/04/03/%E8%87%AA%E4%BF%A1%E5%B4%A9%E6%BA%83%E4%B8%8E%E7%BB%9D%E6%9C%9B%E4%B9%8B%E8%B0%B7/" title="自信崩溃与绝望之谷">自信崩溃与绝望之谷</a><time datetime="2019-04-03T02:24:00.000Z" title="发表于 2019-04-03 10:24:00">2019-04-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/ZRaining-blog/2018/02/09/parcel%EF%BC%81%E5%90%AF%E5%8A%A8%EF%BC%81/" title="parcel！启动！">parcel！启动！</a><time datetime="2018-02-09T10:15:37.000Z" title="发表于 2018-02-09 18:15:37">2018-02-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/ZRaining-blog/2018/01/08/%E4%B8%8D%E6%83%B3%E5%A4%A9%E5%A4%A9%E7%94%BB%E7%BD%91%E9%A1%B5%E4%BA%86%EF%BC%81vue%E5%A4%9A%E9%A1%B5%E9%9D%A2%E6%94%B9%E9%80%A0%EF%BC%81/" title="不想天天画网页了！vue多页面改造！">不想天天画网页了！vue多页面改造！</a><time datetime="2018-01-08T09:06:42.000Z" title="发表于 2018-01-08 17:06:42">2018-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/ZRaining-blog/2017/01/17/%E8%8A%92%E6%9E%9CTV%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%8A%82%E7%9B%AE%E4%BA%A7%E5%93%81%E5%B7%A5%E7%A8%8B%E5%8C%96%E3%80%81%E7%BB%84%E4%BB%B6%E5%8C%96%E5%AE%9E%E8%B7%B5/" title="芒果TV移动端节目产品工程化、组件化实践">芒果TV移动端节目产品工程化、组件化实践</a><time datetime="2017-01-17T15:46:22.000Z" title="发表于 2017-01-17 23:46:22">2017-01-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/ZRaining-blog/2017/01/06/%E8%8B%A6%E9%80%BC%E7%A0%81%E5%86%9C%E7%9A%84%E7%BB%AD%E5%91%BD%E8%AE%A1%E5%88%92%EF%BC%9A%E5%B0%8F%E5%9E%8Bh5%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E5%81%9A%E5%88%B0%E6%9C%89%E5%BA%8F%E5%BC%80%E5%8F%91/" title="苦逼码农的续命计划：小型h5项目如何做到有序开发">苦逼码农的续命计划：小型h5项目如何做到有序开发</a><time datetime="2017-01-06T03:31:27.000Z" title="发表于 2017-01-06 11:31:27">2017-01-06</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent;"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By ZRaining</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/ZRaining-blog/js/utils.js"></script><script src="/ZRaining-blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const abcjsInit = () => {
+    const abcjsFn = () => {
+      setTimeout(() => {
+        const sheets = document.querySelectorAll(".abc-music-sheet")
+        for (let i = 0; i < sheets.length; i++) {
+          const ele = sheets[i]
+          if (ele.children.length > 0) continue
+
+          // Parse parameters from data-params attribute
+          let params = {}
+          const dp = ele.getAttribute("data-params")
+          if (dp) {
+            try {
+              params = JSON.parse(dp)
+            } catch (e) {
+              console.error("Failed to parse data-params:", e)
+            }
+          }
+
+          // Merge parsed parameters with the responsive option
+          // Ensures params content appears before responsive
+          const options = { ...params, responsive: "resize" }
+
+          // Render the music score using ABCJS.renderAbc
+          ABCJS.renderAbc(ele, ele.innerHTML, options)
+        }
+      }, 100)
+    }
+
+    if (typeof ABCJS === "object") {
+      abcjsFn()
+    } else {
+      btf.getScript("https://cdn.jsdelivr.net/npm/abcjs/dist/abcjs-basic-min.min.js").then(abcjsFn)
+    }
+  }
+
+  if (window.pjax) {
+    abcjsInit()
+  } else {
+    window.addEventListener("load", abcjsInit)
+  }
+
+  btf.addGlobalFn("encrypt", abcjsInit, "abcjs")
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.8" zIndex="-1" mobile="true" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
