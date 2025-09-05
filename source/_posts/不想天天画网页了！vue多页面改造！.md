@@ -40,7 +40,7 @@ Orz在芒果画网页已经画了1年+了，实在是要吐了。虽然自己搞
 
 其实具体思路依旧和个人之前编写的那套脚手架相似，大致如图：
 
-{% image fancybox center power-box.png %}
+![](./power-box.png)
 
 ***
 

@@ -40,7 +40,7 @@ categories:
 
 <small>index.html 为入口，加载相对应的 css、js、assets 资源。然后以 script 下的 js 为入口加载 common 中的 js 。</small>
 
-{% image fancybox center mg-m.png %}
+![](mg-m.png)
 
 至于多页面的需求，如果不需要固定url的话直接通过 a 标签来让 html 加载就好。如果需要固定url的话也不用担心，虽然 parcel 没有 input 配置，但是我们有 npmScript 啊~
 

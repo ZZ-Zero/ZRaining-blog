@@ -45,11 +45,3 @@ comments: false
 
 [菜哥的blog](http://www.oldcai.com/) —— 菜菜前辈的博客
 
-[Zine](http://zine.la/) —— Zine官网
-
-[AuraMarker](http://www.auramarker.com/) —— AuraMarker工作室主页
-
-[MGTV](http://www.mgtv.com/) —— 芒果TV
-
-[创造狮](http://chuangzaoshi.com/) —— 创造狮导航 为创意工作者而设计
-
